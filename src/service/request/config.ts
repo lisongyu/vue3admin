@@ -5,7 +5,7 @@ const TIME_OUT = 10000
 console.log(process.env.NODE_ENV)
 const NODE_ENV = process.env.NODE_ENV
 if (NODE_ENV === "development") {
-	BASE_URL = "http://123.207.32.32:8000/"
+	BASE_URL = "/api"
 
 	console.log("我是开发")
 } else if (NODE_ENV === "test") {

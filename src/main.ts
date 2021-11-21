@@ -5,11 +5,12 @@ import store from "./store"
 import "./assets/css/index.less"
 import { globalRegister } from "./global"
 import "./service/axios_demo"
-import hyRequest from "./service"
+import { setupStore } from "./store"
+
 const app: App = createApp(rootApp)
 app.use(globalRegister)
 app.use(router).use(store).mount("#app")
-
+setupStore()
 // hyRequest.request({
 // 	url: "/home.mutidata",
 // 	interceptors: {
@@ -25,17 +26,14 @@ app.use(router).use(store).mount("#app")
 // 	method: "GET"
 // })
 
-interface DataType {
-	data: any
-	returnCode: string
-	success: boolean
-}
-
-hyRequest
-	.get<DataType>({
-		url: "/home.mutidata",
-		method: "GET"
-	})
-	.then((res) => {
-		console.log(res)
-	})
+// hyRequest
+// 	.post<DataType>({
+// 		url: "/login",
+// 		data: {
+// 			name: "coderwhy",
+// 			password: "123456"
+// 		}
+// 	})
+// 	.then((res) => {
+// 		console.log(res)
+// 	})
