@@ -1,17 +1,17 @@
 <template>
-  <div class="department">
-    <h2>department</h2>
-  </div>
+	<div class="department">
+		<h2>department</h2>
+	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue"
 
 export default defineComponent({
-  name: 'department',
-  setup() {
-    return {}
-  }
+	name: "department",
+	setup() {
+		return {}
+	}
 })
 </script>
 

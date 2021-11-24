@@ -1,17 +1,17 @@
 <template>
-  <div class="overview">
-    <h2>overview</h2>
-  </div>
+	<div class="overview">
+		<h2>overview</h2>
+	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue"
 
 export default defineComponent({
-  name: 'overview',
-  setup() {
-    return {}
-  }
+	name: "overview",
+	setup() {
+		return {}
+	}
 })
 </script>
 
