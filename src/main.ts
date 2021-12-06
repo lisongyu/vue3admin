@@ -9,8 +9,9 @@ import { setupStore } from "./store"
 
 const app: App = createApp(rootApp)
 app.use(globalRegister)
-app.use(router).use(store).mount("#app")
 setupStore()
+app.use(router).use(store).mount("#app")
+
 // hyRequest.request({
 // 	url: "/home.mutidata",
 // 	interceptors: {

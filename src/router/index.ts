@@ -1,21 +1,24 @@
 import { createRouter, createWebHashHistory } from "vue-router"
-import { RouteRecordRaw } from "vue-router"
+import type { RouteRecordRaw } from "vue-router"
 
 import localCache from "@/utils/cache"
+import { firstMenu } from "@/utils/map-menus"
 
-// import localCache
 const routes: RouteRecordRaw[] = [
 	{
 		path: "/",
 		redirect: "/main"
 	},
 	{
-		path: "/main",
-		component: () => import("../views/main/main.vue")
+		path: "/login",
+		name: "login",
+		component: () => import("@/views/login/login.vue")
 	},
 	{
-		path: "/login",
-		component: () => import("../views/login/login.vue")
+		path: "/main",
+		name: "main",
+		component: () => import("@/views/main/main.vue")
+		// children: [] -> 根据userMenus来决定 -> children
 	},
 	{
 		path: "/:pathMatch(.*)*",
@@ -29,13 +32,20 @@ const router = createRouter({
 	history: createWebHashHistory()
 })
 
+// 导航守卫
 router.beforeEach((to) => {
 	if (to.path !== "/login") {
-		// 判断登陆
 		const token = localCache.getCache("token")
 		if (!token) {
 			return "/login"
 		}
+	}
+
+	// console.log(router.getRoutes())
+	// console.log(to) // route对象
+
+	if (to.path === "/main") {
+		return firstMenu.url
 	}
 })
 
